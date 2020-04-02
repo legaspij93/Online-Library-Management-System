@@ -4,26 +4,28 @@
     </head>
 
     <body>
-        <div class="bg">
-            
-            <div class="bg-container">
-                <img src="image/bg2.jpg" id="bg-img">
-            </div>
-            
-            <div class="header">
-                <img src="image/LOGO2.png" id="head-logo">
-            </div>
-            
+        <div class="bg"> 
             <div class="register-container"> 
                 <div class="register-container-bg"></div>
                 <div class="register-header">
                     <span class="register-header-label">Sign Up for Free!</span>
                 </div>
                 
+                <div>First Name</div>
+                <div>Last Name</div>
                 <div class="username-label">Username</div>
                 <div class="email-label">Email</div>
                 <div class="password-label">Password</div>
+                <div>ID</div>
                     <form action="user/register" method="post">
+                        <div>
+                            <input type="text" name="firstName">
+                        </div>
+                        
+                        <div>
+                            <input type="text" name="lastName">
+                        </div>
+
                         <div class="username-input">
                             <input class="username" type="text" name="username">
                         </div>
@@ -34,6 +36,10 @@
                         
                         <div class="password-input">
                             <input class="password" type="password" name="password">
+                        </div>
+
+                        <div>
+                            <input type="text" name="ID">
                         </div>
 
                         <div class="login-button-container">

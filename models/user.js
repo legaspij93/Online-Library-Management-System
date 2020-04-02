@@ -13,6 +13,10 @@ var userSchema = mongoose.Schema({
 })
 
 //add crypto usage here
+userSchema.pre("save", function(next){
+    this.password = crypto.createHash("md5").update(this.password).digest("hex")
+    next()
+})
 
 var User = mongoose.model("user", userSchema)
 
@@ -45,6 +49,19 @@ exports.getAll = function(){
     return new Promise(function(resolve, reject){
         User.find().then((users)=>{
             console.log(users)
+            resolve(user)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
+
+exports.authenticate = function(user){
+    return new Promise(function(resolve, reject){
+        User.findOne({
+            username : user.username,
+            password : crypto.createHash("md5").update(user.password).digest("hex")
+        }).then((user)=>{
             resolve(user)
         }, (err)=>{
             reject(err)
