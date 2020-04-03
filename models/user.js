@@ -2,14 +2,34 @@ const mongoose = require("mongoose")
 const crypto = require("crypto")
 
 var userSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    username: String,
-    password: String,
-    email: String,
-    ID: String,
-    // reviews: String, //subject to change (needs to store all reviews of diff books)
-    userType: Number //1 - admin, 2 - manager, 3 - student/teacher
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    ID: {
+        type: String,
+        required: true
+    },
+    userType: {
+        type: Number, //1 - admin, 2 - manager, 3 - student/teacher
+        required: true
+    } 
 })
 
 //add crypto usage here
@@ -68,3 +88,5 @@ exports.authenticate = function(user){
         })
     })
 }
+
+module.exports = User;
