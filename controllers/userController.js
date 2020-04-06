@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require("../models/user")
 const bodyparser = require("body-parser")
 const passport = require("passport")
+const { ensureAdmin } = require("../helpers/auth")
 
 const app = express()
 
@@ -28,29 +29,29 @@ router.post("/register", function(req, res){
         password: req.body.password,
         email: req.body.email,
         ID: req.body.ID,
-        userType: 3
+        userType: 1
     }
     User.create(user).then((user)=>{
         console.log(user)
-        //res.render("") *insert login screen hbs here*
+        res.redirect("/user/login") 
     })
 })
 
-// router.post("/login", function(req, res){
-//     var user = {
-//         username : req.body.username,
-//         password : req.body.password
-//     }
-    
-//     User.authenticate(user).then((newUser)=>{
-//         if(newUser){
-//             console.log("worked")
-//             //res.redirect("") *redirect to home screen*
-//         }
-//     }, (err)=>{
-//         res.sendFile(err)
-//     })
-// })
+router.post("/registerManager", ensureAdmin, function(req,res){
+    var user = {
+        firstName : req.body.firstName,
+        lastName: req.body.lastName,
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        ID: req.body.ID,
+        userType: 2
+    }
+    User.create(user).then((user)=>{
+        console.log(user)
+        res.redirect("/dashboard") 
+    })
+})
 
 router.post("/login", function(req,res, next){
     passport.authenticate('local',{

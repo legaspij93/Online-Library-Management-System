@@ -5,6 +5,7 @@ const { ensureAuthenticated } = require("../helpers/auth")
 const app = express()
 
 router.use("/user", require("./userController"))
+router.use("/book", require("./bookController"))
 
 router.get("/", function(req,res){
     console.log("GET /")
@@ -12,7 +13,15 @@ router.get("/", function(req,res){
 })
 
 router.get("/dashboard", ensureAuthenticated, function(req,res){
-    res.render("dashboard.hbs")
+    if(req.user.userType == 3){
+        res.render("dashboard.hbs")
+    }
+    else if(req.user.userType == 1){
+        res.render("adminDash.hbs")
+    }
+    else if(req.user.userType == 2){
+        res.render("managerDash.hbs")
+    }
 })
 
 module.exports = router
