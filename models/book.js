@@ -6,7 +6,6 @@ var bookSchema = mongoose.Schema({
     publisher: String,
     publictionYear: Date,
     ISBN: String,
-    status: Boolean, //0 for available, 1 for reserved
     // reviews: String //subject to change
 })
 
@@ -44,4 +43,24 @@ exports.getAll = function(){
             reject(err)
         })
     })
+}
+
+exports.edit = function(oldContent, newContent){
+    return new Promise(function(resolve, reject){
+        Book.findOneAndUpdate(oldContent, newContent).then((book)=>{
+            console.log("Update: " + book)
+        })
+    })
+}
+
+exports.delete = function (id){
+    return new Promise(function(resolve, reject){
+        Book.deleteOne({_id: id
+        }).then((book)=>{
+            console.log("Deleted: ",  book)
+        },(err)=>{
+            reject(err)
+        })
+    })
+
 }
