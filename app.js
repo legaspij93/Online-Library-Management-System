@@ -25,7 +25,10 @@ const urlencoder = bodyparser.urlencoded({
 app.use(session({
     secret: "secret",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 60000
+    }
 }))
 
 //Passport middleware
