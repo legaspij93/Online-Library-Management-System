@@ -67,12 +67,18 @@ router.get("/logout", function(req,res){
 })
 
 router.post("/changePassword", function(req,res){
-    let id = req.body.id;
+    let username = req.user._id;
     let password1 = req.body.password1;
     let password2 = req.body.password2;
 
+    console.log(username)
+    console.log(password1)
+    console.log(password2)
+
     if(password1 == password2){
-        User.edit({_id:id}, {password: crypto.createHash("md5").update(password1).digest("hex")})
+        User.findOneAndUpdate({_id:username}, {password: crypto.createHash("md5").update(password1).digest("hex")}).then((user)=>{
+            console.log(user)
+        })
     }
     res.redirect("/dashboard")
 })
