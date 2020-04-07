@@ -29,7 +29,13 @@ var userSchema = mongoose.Schema({
     userType: {
         type: Number, //1 - admin, 2 - manager, 3 - student/teacher
         required: true
-    } 
+    },
+    loginAttempts: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    lockUntil: Number
 })
 
 //add crypto usage here
@@ -37,6 +43,42 @@ userSchema.pre("save", function(next){
     this.password = crypto.createHash("md5").update(this.password).digest("hex")
     next()
 })
+
+userSchema.virtual('isLocked').get(function() {
+    return !!(this.lockUntil && this.lockUntil > Date.now());
+});
+userSchema.methods.incrementLoginAttempts = function(callback) {
+    const maxAttempts = 3;
+    const lockoutHours = 60 * 1000;
+    console.log("lock until",this.lockUntil)
+    // if we have a previous lock that has expired, restart at 1
+    var lockExpired = !!(this.lockUntil && this.lockUntil < Date.now());
+    console.log("lockExpired",lockExpired)
+    if (lockExpired) {
+        return this.update({
+            $set: { loginAttempts: 1 },
+            $unset: { lockUntil: 1 }
+        }, callback);
+    }
+    // otherwise we're incrementing
+    var updates = { 
+        $inc: { 
+            loginAttempts: 1 
+        } 
+    };
+    // lock the account if we've reached max attempts and it's not locked already
+    var needToLock = !!(this.loginAttempts + 1 >= maxAttempts && !this.isLocked);
+    console.log("needToLock",needToLock)
+    console.log("loginAttempts",this.loginAttempts)
+    if (needToLock) {
+        updates.$set = { 
+            lockUntil: Date.now() + lockoutHours 
+        };
+        console.log("lockoutHours",Date.now() + lockoutHours)
+    }
+    //console.log("lockUntil",this.lockUntil)
+    return this.update(updates, callback);
+};
 
 var User = mongoose.model("user", userSchema)
 
