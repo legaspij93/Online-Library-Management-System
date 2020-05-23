@@ -10,6 +10,11 @@
                 <div class="register-header">
                     <span class="register-header-label">Sign Up for Free!</span>
                 </div>
+                {{#if errors }}
+                    {{#each errors }}
+                        <li>{{this.msg}}</li>
+                    {{/each}}
+                {{/if}}
                 
                 <div>First Name</div>
                 <div>Last Name</div>
@@ -49,7 +54,7 @@
                 
                 <div class="login">
                     Have an account?
-                    <a class="login-link" href="./user/login">Sign in!</a>
+                    <a class="login-link" href="./login">Sign in!</a>
                 </div>
                 
             </div>
