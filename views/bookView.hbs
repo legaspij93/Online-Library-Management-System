@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="bookViewCSS.css">
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    </head>
+
+    <body>
+        <div class="dashboard-container">
+            <nav>
+                <img class="logo" src="sprites/WHITE.png">
+
+                <ul class="nav">
+                    <li><a href="#" name="home">Home</a></li>
+                    <li><a href="#" name="profile">Profile</a></li> 
+                    <li class="search-icon"> 
+                        <input class="search-box" type="search" name="search" placeholder=" Search..." >
+                        <label class="icon">
+                            <span class="fas fa-search"></span>
+                        </label>
+                        
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="book-container">
+                <div class="details-container">
+                    <div class="book-image-container">
+                        <img class="book-image" src="sprites/ToKillAMockingbird.jpg">
+                    </div>
+                    
+
+                    <div class="details">
+                        <div class="title"><span>To Kill a Mockingbird</span></div>
+
+                        <div class="author-ctnr">
+                            <div class="author-label">Author:  </div>
+                            <div class="author">Harper Lee</div>
+                        </div>
+
+                        <div class="publisher-ctnr">
+                            <div class="publisher-label">Publisher: </div>
+                            <div class="publisher">J. B. Lippincott & Co.</div>
+                        </div>
+
+                        <div class="yop-ctnr">
+                            <div class="yop-label">Year of Publication:</div>
+                            <div class="yop">1960</div>
+                        </div>
+
+                        <div class="isbn-ctnr">
+                            <div class="isbn-label">ISBN:</div>
+                            <div class="isbn">0446310786</div>
+                        </div>
+
+                        <div class="status-ctnr">
+                            <div class="status-label">Status: </div>
+                            <div class="status">Available</div>
+                        </div>
+
+                        <div class="borrow-button-ctnr">
+                            <div class="borrow-button">BORROW</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-ctnr">
+
+                    <div class="review-header">
+                        <div class="review-label">Reviews</div>
+
+                        <div class="review-button-ctnr">
+                            <div class="review-button">LEAVE A REVIEW</div>
+                        </div>
+                    </div>
+
+                    {{#each review}}
+                    <div class="review">
+                        <div class="reviewer">John Legaspi</div>
+
+                        <div class="review-description">I like the book.</div>
+                    </div>
+                    {{/each}}
+                    
+                    
+
+                    
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
