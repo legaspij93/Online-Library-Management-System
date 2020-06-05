@@ -23,7 +23,7 @@
     padding: 0;
 }
 
-.dashboard-container{
+.profile-container{
     background-image: url(sprites/bg.png);
     height: 100%;
     margin: 0px;
@@ -132,41 +132,161 @@ nav ul .search-icon .icon span{
     font-size: 18px;;
 }
 
-.book-container{
-    padding: 30px;
-    width: 93%;
-    display: inline-flex;
-    flex-direction: row;
-    margin-left: 15px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-    align-content: flex-start;
-}
-
-.book{
-    padding-top: 20px;
-    padding-right: 15px;
-    padding-left: 10px;
-    width: 200px;
+.body-container{
+    background-color: rgba(248, 244, 223, 0.7);
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    margin: 20px 150px;
+}
+
+.profile{
+    display: inline-flex;
+    direction: row;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.details{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    letter-spacing: 1px;
+    flex-wrap: wrap;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 5px;
+    font-size: 20px;
+
+}
+
+#password, #logout{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: #fff;
+    background-color: #4a85ac;
+    border-radius: 20px;
+    border-color: #4a85ac;
+    padding: 12px 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#password:hover{
+    background-color: #114b72;
+    cursor: pointer;
+}
+
+#logout:hover{
+    background-color: #114b72;
+    cursor: pointer;
 }
 
 
-.book-image{
-    height: 250px;
+#name{
+    font-family: ralewaysemibold;
+    font-size: 24px;
 }
 
-.book-title{
-    padding-top: 10px;
+#username, #id-number, #email{
+    font-family: ralewayregular;
+    font-size: 20px;
 }
 
-.book-title:hover{
-    color: #114b72;
-}
-
-.book-author{
+#name, #username, #id-number, #email{
     padding-top: 5px;
+    display: flex;
 }
+
+hr{
+
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #333;
+    padding: 0;
+
+}
+
+.body{
+    padding: 20px;
+    font-size: 18px;
+    margin-top: 10px;
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.sidebar-container{
+    width: 25%;
+}
+
+#my-account{
+    font-family: ralewaysemibold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+#reviews, #borrowing, #history{
+    margin-bottom: 30px;
+    font-family: ralewayregular;
+    color: #000;
+}
+
+#reviews:hover{
+    color: #114b72;
+    cursor: pointer;
+}
+
+#borrowing:hover{
+    color: #114b72;
+    cursor: pointer;
+}
+
+#history:hover{
+    color: #114b72;
+    cursor: pointer;
+}
+
+
+.main-container{
+    margin-left: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#label{
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.review{
+    border-bottom: 1px solid #333;
+    padding: 25px 0px;
+}
+
+.information-container{
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+
+#book-title, #review-descrip{
+    margin-bottom: 10px;
+}
+
+#book-title:hover{
+    color: #114b72;
+    cursor: pointer;
+}
+
+#review-descrip{
+    font-family: ralewayregular;
+}
+
