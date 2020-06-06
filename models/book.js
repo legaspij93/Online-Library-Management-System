@@ -7,6 +7,7 @@ var bookSchema = mongoose.Schema({
     publictionYear: Date,
     ISBN: String,
     // reviews: String //subject to change
+    coverImage: String
 })
 
 var Book = mongoose.model("book", bookSchema)

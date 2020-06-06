@@ -37,15 +37,16 @@ router.post("/register", [
     check('ID').not().isEmpty().isInt().withMessage('ID is required')
 ], function(req, res){
         var errors = validationResult(req).array()
-        if(errors){
+        if(errors.length > 0){
+            console.log("errors: " + validationResult(req).array().length)
             req.session.errors = errors
             req.session.success = false
             errors.forEach(element => {
                 console.log(element)
             });
-
             res.redirect('./login')
         }else{
+            console.log("creation success 1")
             req.session.success = true
             var user = {
                 firstName : req.body.firstName,
@@ -54,7 +55,7 @@ router.post("/register", [
                 password: req.body.password,
                 email: req.body.email,
                 ID: req.body.ID,
-                userType: 1
+                userType: 2
             }
             User.create(user).then((user)=>{
                 console.log(user)
@@ -109,7 +110,7 @@ router.post("/changePassword", function(req,res){
     res.redirect("/dashboard")
 })
 
-router.get("/history", function(req,res){
+router.get("/profile", function(req,res){
     res.render("history.hbs")
 })
 
