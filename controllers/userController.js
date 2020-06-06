@@ -44,7 +44,7 @@ router.post("/register", [
                 console.log(element)
             });
 
-            res.redirect('./register')
+            res.redirect('./login')
         }else{
             req.session.success = true
             var user = {
@@ -107,6 +107,10 @@ router.post("/changePassword", function(req,res){
         })
     }
     res.redirect("/dashboard")
+})
+
+router.get("/history", function(req,res){
+    res.render("history.hbs")
 })
 
 module.exports = router

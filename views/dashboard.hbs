@@ -1,12 +1,123 @@
-<div>dashboard</div>
-<div>
-    <form action="/user/changePassword" method="post">
-        <div>New Password</div>
-        <input type="password" name="password1">
-        <div>Confirm Password</div>
-        <input type="password" name="password2">
-        
-        <input type="submit" value="submit">
-    </form>
-</div>
-<a href="/user/logout">logout</a>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/dashboardCSS.css">
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    </head>
+
+    <body>
+        <div class="dashboard-container">
+            <nav>
+                <img class="logo" src="/sprites/WHITE.png">
+
+                <ul class="nav">
+                    <li><a href="/dashboard" name="home">Home</a></li>
+                    <li><a href="/user/history" name="profile">Profile</a></li> 
+                    <li class="search-icon"> 
+                        <input class="search-box" type="search" name="search" placeholder=" Search..." >
+                        <label class="icon">
+                            <span class="fas fa-search"></span>
+                        </label>
+                        
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="book-container">
+
+                {{#each book}}
+                    <div class="book">
+
+                        <div class="book-image-container">
+                            <img class="book-image" src="/sprites/ToKillAMockingbird.jpg">
+                        </div>
+
+                        <div class="book-title">{{title}}}}</div>
+                        <div class="book-author">{{author}}</div>
+
+                    </div>
+                {{/each}}
+
+                <div class="book">
+
+                    <div class="book-image-container">
+                        <img class="book-image" src="/sprites/MuchAdoAboutNothing.jpg">
+                    </div>
+
+                    <div class="book-title">Much Ado About Nothing</div>
+                    <div class="book-author">William Shakespeare</div>
+
+                </div>
+
+                <div class="book">
+
+                    <div class="book-image-container">
+                        <img class="book-image" src="/sprites/LesMiserables.jfif">
+                    </div>
+
+                    <div class="book-title">Les Miserables</div>
+                    <div class="book-author">Victor Hugo</div>
+
+                </div>
+
+                <div class="book">
+
+                    <div class="book-image-container">
+                        <img class="book-image" src="/sprites/OfMiceAndMen.jpg">
+                    </div>
+
+                    <div class="book-title">Of Mice and Men</div>
+                    <div class="book-author">John Steinbeck</div>
+
+                </div>
+
+                <div class="book">
+
+                    <div class="book-image-container">
+                        <img class="book-image" src="/sprites/EightGreatComedies.jpg">
+                    </div>
+
+                    <div class="book-title">Eight Great Comedies</div>
+                    <div class="book-author">Sylvan Barnet</div>
+
+                </div>
+
+                <div class="book">
+
+                    <div class="book-image-container">
+                        <img class="book-image" src="/sprites/EightGreatTragedies.jpg">
+                    </div>
+
+                    <div class="book-title">Eight Great Tragedies</div>
+                    <div class="book-author">Sylvan Barnet</div>
+
+                </div>
+
+                <div class="book">
+
+                    <div class="book-image-container">
+                        <img class="book-image" src="/sprites/EightGreatComedies.jpg">
+                    </div>
+
+                    <div class="book-title">Eight Great Comedies</div>
+                    <div class="book-author">Sylvan Barnet</div>
+
+                </div>
+
+                <div class="book">
+
+                    <div class="book-image-container">
+                        <img class="book-image" src="/sprites/EightGreatTragedies.jpg">
+                    </div>
+
+                    <div class="book-title">Eight Great Tragedies</div>
+                    <div class="book-author">Sylvan Barnet</div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

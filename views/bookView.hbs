@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="bookViewCSS.css">
+        <link rel="stylesheet" type="text/css" href="/bookViewCSS.css">
         <meta charset="UTF-8">
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
@@ -9,11 +9,12 @@
     <body>
         <div class="dashboard-container">
             <nav>
-                <img class="logo" src="sprites/WHITE.png">
+                <img class="logo" src="/sprites/WHITE.png">
 
                 <ul class="nav">
-                    <li><a href="#" name="home">Home</a></li>
-                    <li><a href="#" name="profile">Profile</a></li> 
+                    <li><a href="/dashboard" name="home">Home</a></li>
+                    <li><a href="/user/history" name="profile
+                    ">Profile</a></li> 
                     <li class="search-icon"> 
                         <input class="search-box" type="search" name="search" placeholder=" Search..." >
                         <label class="icon">
@@ -27,7 +28,7 @@
             <div class="book-container">
                 <div class="details-container">
                     <div class="book-image-container">
-                        <img class="book-image" src="sprites/ToKillAMockingbird.jpg">
+                        <img class="book-image" src="/sprites/ToKillAMockingbird.jpg">
                     </div>
                     
 
@@ -76,11 +77,11 @@
                     </div>
 
                     {{#each review}}
-                    <div class="review">
-                        <div class="reviewer">John Legaspi</div>
+                        <div class="review">
+                            <div class="reviewer">John Legaspi</div>
 
-                        <div class="review-description">I like the book.</div>
-                    </div>
+                            <div class="review-description">I like the book.</div>
+                        </div>
                     {{/each}}
                     
                     
