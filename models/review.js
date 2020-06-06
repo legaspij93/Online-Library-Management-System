@@ -43,3 +43,22 @@ exports.getAll = function(){
         })
     })
 }
+
+exports.edit = function(oldContent, newContent){
+    return new Promise(function(resolve, reject){
+        Review.findOneAndUpdate(oldContent, newContent).then((review)=>{
+            console.log("Update: " + review)
+        })
+    })
+}
+
+exports.delete = function (id){
+    return new Promise(function(resolve, reject){
+        Review.deleteOne({_id: id
+        }).then((review)=>{
+            console.log("Deleted: ",  review)
+        },(err)=>{
+            reject(err)
+        })
+    })
+}
