@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const Book = require("../models/book")
+const User = require("../models/user")
 const bodyparser = require("body-parser")
 const passport = require("passport")
 const { ensureManager } = require("../helpers/auth")
@@ -47,6 +48,21 @@ router.post("/deleteBook", ensureManager, function(req,res){
     Book.delete(id)
 
     res.redirect("/dashboard")
+})
+
+router.get("/:title", function(req,res){
+    let currTitle = req.params.title
+    let userId = req.user.ID
+    console.log("title"+currTitle)
+    Book.findOne({title:currTitle}).then((book)=>{
+        User.findOne({ID:userId}).then((user)=>{
+            res.render("bookView.hbs", {
+                currBook:book,
+                users:user
+            })
+        })
+    })
+    
 })
 
 module.exports = router

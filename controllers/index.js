@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const { ensureAuthenticated } = require("../helpers/auth")
 const User = require("../models/user")
+const Book = require("../models/book")
 
 const app = express()
 
@@ -11,14 +12,25 @@ router.use("/instance", require("./bookInstanceController"))
 
 router.get("/", function(req,res){
     console.log("GET /")
-    res.send("Hello")
+    // res.send("Hello")
+    res.redirect("/dashboard")
 })
 
 router.get("/dashboard", ensureAuthenticated, function(req,res){
     let userId = req.user.ID
     User.findOne({ID:userId}).then((user)=>{
             if(req.user.userType == 3){
-                res.render("dashboard.hbs", user)
+                Book.find().then((books)=>{
+                    res.render("dashboard", {
+                      users: user, 
+                      book: books
+                    })
+                    console.log("books successfully loaded")
+                    console.log(req.body)
+                  }, (error)=> {
+                    console.log("error loading books");
+                  })
+                // res.render("dashboard.hbs", user)
             }
             else if(req.user.userType == 1){
                 res.render("adminDash.hbs", user)

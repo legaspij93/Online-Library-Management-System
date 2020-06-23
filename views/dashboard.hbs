@@ -13,7 +13,10 @@
 
                 <ul class="nav">
                     <li><a href="/dashboard" name="home">Home</a></li>
-                    <li><a href="/user/{{username}}" name="profile">Profile</a></li> 
+                    {{#users}}
+                        <li><a href="/user/{{username}}" name="profile">Profile</a></li> 
+                    {{/users}}
+                    
                     <li class="search-icon"> 
                         <input class="search-box" type="search" name="search" placeholder=" Search..." >
                         <label class="icon">
@@ -28,18 +31,18 @@
 
                 {{#each book}}
                     <div class="book">
+                        <a href="/book/{{title}}">
+                            <div class="book-image-container">
+                                <img class="book-image" src="{{coverImage}}">
+                            </div>
 
-                        <div class="book-image-container">
-                            <img class="book-image" src="{{coverImage}}">
-                        </div>
-
-                        <div class="book-title">{{title}}</div>
-                        <div class="book-author">{{author}}</div>
-
+                            <div class="book-title">{{title}}</div>
+                            <div class="book-author">{{author}}</div>
+                        </a>
                     </div>
                 {{/each}}
 
-                <div class="book">
+                {{!-- <div class="book">
 
                     <div class="book-image-container">
                         <img class="book-image" src="/sprites/MuchAdoAboutNothing.jpg">
@@ -114,7 +117,7 @@
                     <div class="book-title">Eight Great Tragedies</div>
                     <div class="book-author">Sylvan Barnet</div>
 
-                </div>
+                </div> --}}
 
             </div>
         </div>

@@ -65,3 +65,5 @@ exports.delete = function (id){
     })
 
 }
+
+module.exports = Book;
