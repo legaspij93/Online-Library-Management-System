@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const { ensureAuthenticated } = require("../helpers/auth")
+const User = require("../models/user")
 
 const app = express()
 
@@ -14,15 +15,21 @@ router.get("/", function(req,res){
 })
 
 router.get("/dashboard", ensureAuthenticated, function(req,res){
-    if(req.user.userType == 3){
-        res.render("dashboard.hbs")
-    }
-    else if(req.user.userType == 1){
-        res.render("adminDash.hbs")
-    }
-    else if(req.user.userType == 2){
-        res.render("managerDash.hbs")
-    }
+    let userId = req.user.ID
+    User.findOne({ID:userId}).then((user)=>{
+            if(req.user.userType == 3){
+                res.render("dashboard.hbs", user)
+            }
+            else if(req.user.userType == 1){
+                res.render("adminDash.hbs", user)
+            }
+            else if(req.user.userType == 2){
+                res.render("managerDash.hbs", user)
+            }
+        }, (error)=> {
+            console.log("may error dito: " + error);
+        }
+    )
 })
 
 module.exports = router

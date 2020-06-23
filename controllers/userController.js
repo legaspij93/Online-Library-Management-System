@@ -82,6 +82,7 @@ router.post("/registerManager", ensureAdmin, function(req,res){
 })
 
 router.post("/login", function(req,res, next){
+    req.session.username = req.body.username
     passport.authenticate('local',{
         successRedirect: "/dashboard",
         failureRedirect: "/user/login",
@@ -112,6 +113,14 @@ router.post("/changePassword", function(req,res){
 
 router.get("/profile", function(req,res){
     res.render("history.hbs")
+})
+
+router.get("/:username", function(req,res){
+    let currUsername = req.user.username
+    User.findOne({username:currUsername}).then((user)=>{
+        res.render("history.hbs", user)
+    })
+    
 })
 
 module.exports = router

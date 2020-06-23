@@ -13,7 +13,7 @@
 
                 <ul class="nav">
                     <li><a href="/dashboard" name="home">Home</a></li>
-                    <li><a href="/user/profile" name="profile">Profile</a></li> 
+                    <li><a href="/user/{{username}}" name="profile">Profile</a></li> 
                     <li class="search-icon"> 
                         <input class="search-box" type="search" name="search" placeholder=" Search..." >
                         <label class="icon">
@@ -26,10 +26,10 @@
             <div class="body-container">
                 <div class="profile">
                     <div class="details">
-                        <div id="name">Francine Sia</div>
-                        <div id="username">@siafrancine</div>
-                        <div id="id-number">11712345</div>
-                        <div id="email">francine_sia@dlsu.edu.ph</div>
+                        <div id="name">{{firstName}} {{lastName}}</div>
+                        <div id="username">{{username}}</div>
+                        <div id="id-number">{{ID}}</div>
+                        <div id="email">{{email}}</div>
                     </div>
 
                     <div class="button-container">
