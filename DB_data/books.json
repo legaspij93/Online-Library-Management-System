@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "5ef1a3616eec39083dd28b8d"
+  },
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "publisher": "J. B. Lippincott & Co.",
+  "ISBN": "0446310786",
+  "coverImage": "/sprites/ToKillAMockingbird.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ef1a484cdea950945ac1bc5"
+  },
+  "title": "Much Ado About Nothing",
+  "author": "William Shakespeare",
+  "publisher": "",
+  "ISBN": "",
+  "coverImage": "/sprites/MuchAdoAboutNothing.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ef1a4d3cdea950945ac1bc6"
+  },
+  "title": "Les Miserables",
+  "author": "Victor Hugo",
+  "publisher": "",
+  "ISBN": "",
+  "coverImage": "/sprites/LesMiserables.jfif",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ef1a4e2cdea950945ac1bc7"
+  },
+  "title": "Of Mice and Men",
+  "author": "John Steinbeck",
+  "publisher": "",
+  "ISBN": "",
+  "coverImage": "/sprites/OfMiceAndMen.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ef1a4eecdea950945ac1bc8"
+  },
+  "title": "Eight Great Comedies",
+  "author": "Sylvan Barnet",
+  "publisher": "",
+  "ISBN": "",
+  "coverImage": "/sprites/EightGreatComedies.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ef1a4f9cdea950945ac1bc9"
+  },
+  "title": "Eight Great Tragedies",
+  "author": "Sylvan Barnet",
+  "publisher": "",
+  "ISBN": "",
+  "coverImage": "/sprites/EightGreatTragedies.jpg",
+  "__v": 0
+}]
