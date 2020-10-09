@@ -3,6 +3,7 @@ const router = express.Router()
 const { ensureAuthenticated } = require("../helpers/auth")
 const User = require("../models/user")
 const Book = require("../models/book")
+const logger = require("../config/logger")
 
 const app = express()
 
