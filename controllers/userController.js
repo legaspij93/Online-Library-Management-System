@@ -46,7 +46,7 @@ router.post("/registerManager", ensureAdmin, function(req,res){
         password: req.body.password,
         email: req.body.email,
         ID: req.body.ID,
-        userType: 2
+        userType: 3
     }
     User.create(user).then((user)=>{
         console.log(user)
