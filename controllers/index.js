@@ -10,6 +10,7 @@ const app = express()
 router.use("/user", require("./userController"))
 router.use("/book", require("./bookController"))
 router.use("/instance", require("./bookInstanceController"))
+router.use("/review", require("./reviewController"))
 
 router.get("/", function(req,res){
     console.log("GET /")
