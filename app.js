@@ -3,6 +3,7 @@ const bodyparser = require("body-parser")
 const mongoose = require("mongoose")
 const session = require("express-session")
 const passport = require("passport")
+const logger = require("./config/logger")
 
 const app = express()
 
@@ -38,6 +39,18 @@ app.use(passport.session())
 //HBS View Engine
 app.set("view engine", "hbs")
 app.use(express.static(__dirname + "/public"))
+
+// app.use((req,res,next) => {
+//     logger.info(req.body);
+//     let oldSend = res.send;
+//     res.send = function(data){
+//         // if(res.get)
+//         // logger.info(JSON.parse(data))
+//         logger.info(data)
+//         oldSend.apply(res, arguments)
+//     }
+//     next()
+// })
 
 app.use(require("./controllers"))
 

@@ -22,6 +22,7 @@ router.get("/dashboard", ensureAuthenticated, function(req,res){
     let userId = req.user.ID
     User.findOne({ID:userId}).then((user)=>{
             if(req.user.userType == 3){
+                logger.info("Rendering dashboard")
                 Book.find().then((books)=>{
                     res.render("dashboard", {
                       users: user, 
@@ -31,6 +32,7 @@ router.get("/dashboard", ensureAuthenticated, function(req,res){
                     console.log(req.body)
                   }, (error)=> {
                     console.log("error loading books");
+                    logger.error("Error loading books: " + error)
                   })
                 // res.render("dashboard.hbs", user)
             }
@@ -42,6 +44,7 @@ router.get("/dashboard", ensureAuthenticated, function(req,res){
             }
         }, (error)=> {
             console.log("may error dito: " + error);
+            logger.error("Error getting dashboard: " + error)
         }
     )
 })

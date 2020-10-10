@@ -4,6 +4,7 @@ const Book = require("../models/book")
 const User = require("../models/user")
 const bodyparser = require("body-parser")
 const passport = require("passport")
+const logger = require("../config/logger")
 const { ensureManager } = require("../helpers/auth")
 
 const app = express()

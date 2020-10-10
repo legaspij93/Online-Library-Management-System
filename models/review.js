@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const logger = require("../config/logger")
 
 var reviewSchema = mongoose.Schema({
     title: String,

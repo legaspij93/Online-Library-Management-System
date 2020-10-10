@@ -5,6 +5,7 @@ const bodyparser = require("body-parser")
 const session = require('express-session')
 const passport = require("passport")
 const crypto = require("crypto")
+const logger = require("../config/logger")
 const { ensureAdmin } = require("../helpers/auth")
 
 const { check , validationResult } = require('express-validator')
@@ -26,23 +27,39 @@ router.get("/login", function(req,res){
 })
 
 router.post("/register", [
-    check('firstName').not().isEmpty().isAlpha().withMessage('First name is required'),
-    check('firstName').isAlpha().withMessage('Input should be characters only'),
-    check('lastName').isAlpha().withMessage('Last name is required'),
-    check('lastName').not().isEmpty().isAlpha().withMessage('Input should be characters only'),
+    // check('firstName').not().isEmpty().isAlpha().withMessage('First name is required'),
+    check('firstName').notEmpty().withMessage('First name is required'),
+    check('firstName').custom((value,{req})=>{
+        if(isNaN(value)){
+            return true;
+        }else{
+            throw new Error('Input should be characters only')
+        }
+    }),
+    check('lastName').notEmpty().withMessage('Last name is required'),
+    check('lastName').custom((value,{req})=>{
+        if(isNaN(value)){
+            return true;
+        }else{
+            throw new Error('Input should be characters only')
+        }
+    }),
     check('username').not().isEmpty().withMessage('Username is required'),
     check('password').not().isEmpty().withMessage('Password is required'),
     check('password').isLength({min: 8}).withMessage('Password should be at least 8 characters'),
     check('email').isEmail().withMessage('Email is required'),
     check('ID').not().isEmpty().isInt().withMessage('ID is required')
 ], function(req, res){
+        logger.info("User registration:")
         var errors = validationResult(req).array()
         if(errors.length > 0){
             console.log("errors: " + validationResult(req).array().length)
             req.session.errors = errors
             req.session.success = false
+            logger.error("User creation unsuccessful; errors: " + validationResult(req).array().length)
             errors.forEach(element => {
                 console.log(element)
+                logger.error(element)
             });
             res.redirect('./login')
         }else{
@@ -55,10 +72,11 @@ router.post("/register", [
                 password: req.body.password,
                 email: req.body.email,
                 ID: req.body.ID,
-                userType: 2
+                userType: 3
             }
             User.create(user).then((user)=>{
                 console.log(user)
+                logger.info("Successfully created user: " + user.username)
                 res.redirect("/user/login") 
             })
         }
