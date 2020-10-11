@@ -16,6 +16,7 @@ const urlencoder = bodyparser.urlencoded({
 router.use(urlencoder)
 
 router.post("/createBook", ensureManager, function(req,res){
+    logger.info("Book Creation by: " + req.user.username)
     var book = {
         title: req.body.title,
         author: req.body.author,
@@ -25,11 +26,13 @@ router.post("/createBook", ensureManager, function(req,res){
     }
     Book.create(book).then((book)=>{
         console.log(book)
+        logger.info(book.title + " successfully created.")
         res.redirect("/dashboard")
     })
 })
 
 router.post("/editBook", ensureManager, function(req,res){
+    logger.info("Book Edit by: " + req.user.username)
     let id = req.body.id;
     let title = req.body.title;
     let author = req.body.author;
@@ -38,6 +41,7 @@ router.post("/editBook", ensureManager, function(req,res){
     let ISBN = req.body.ISBN;
 
     res.redirect("/dashboard")
+    logger.info(title + " successfully edited.")
     Book.edit({_id:id}, {title: title}, {author:author}, {publisher:publisher}, {publicationYear:publicationYear},
         {ISBN:ISBN})
 })
@@ -45,9 +49,9 @@ router.post("/editBook", ensureManager, function(req,res){
 router.post("/deleteBook", ensureManager, function(req,res){
     let id = req.body.id;
     console.log(id)
-
+    logger.info("Book Deleted by: " + req.user.username)
     Book.delete(id)
-
+    logger.info("Successful Delete")
     res.redirect("/dashboard")
 })
 

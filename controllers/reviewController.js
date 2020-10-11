@@ -4,6 +4,7 @@ const Review = require("../models/review")
 const bodyparser = require("body-parser")
 const passport = require("passport")
 const { ensureManager } = require("../helpers/auth")
+const logger = require("../config/logger")
 
 const app = express()
 
@@ -21,6 +22,7 @@ router.post("/createReview", ensureManager, function(req,res){
     }
     Review.create(review).then((review)=>{
         console.log(review)
+        logger.info(review.title + " created by: " + req.user.username)
         //res.redirect()
     })
 })

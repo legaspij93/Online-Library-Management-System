@@ -21,6 +21,7 @@ router.get("/", function(req,res){
 router.get("/dashboard", ensureAuthenticated, function(req,res){
     let userId = req.user.ID
     User.findOne({ID:userId}).then((user)=>{
+            logger.info("User: " + user.username + " has logged in")
             if(req.user.userType == 3){
                 logger.info("Rendering dashboard")
                 Book.find().then((books)=>{
