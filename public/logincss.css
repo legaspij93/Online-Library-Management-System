@@ -26,6 +26,9 @@
     left: -50%;
     width: 200%;
     height: 200%;
+    background-color: #FAFFFD;
+    /* background-color: #DBD9DB; */
+    /* background-color: #D7D0C8; */
 }
 
 #bg-img{
@@ -41,7 +44,7 @@
 
 .logo-container{
     position: absolute;
-    left: 0;
+    left: -7%;
     top: 0;
     width: 100%;
     border-bottom: transparent;
