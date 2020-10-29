@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="managerBookViewcss.css">
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    </head>
+
+    <body>
+        <div class="dashboard-container">
+            <nav>
+                <img class="logo" src="../public/sprites/WHITE.png">
+
+                <ul class="nav">
+                    <li><a href="#" name="home">Home</a></li>
+                    <li><a href="#" name="logout">Logout</a></li> 
+                </ul>
+            </nav>
+
+            <div class="book-container">
+                <div class="details-container">
+                    <div class="book-image-container">
+                        <img class="book-image" src="../public/sprites/ToKillAMockingbird.jpg">
+                    </div>
+                    
+                    <div class="details">
+                        <div class="title"><span>To Kill a Mockingbird</span></div>
+
+                        <div class="author-ctnr">
+                            <div class="author-label">Author:  </div>
+                            <div class="author">Harper Lee</div>
+                        </div>
+
+                        <div class="publisher-ctnr">
+                            <div class="publisher-label">Publisher: </div>
+                            <div class="publisher">J. B. Lippincott & Co.</div>
+                        </div>
+
+                        <div class="yop-ctnr">
+                            <div class="yop-label">Year of Publication:</div>
+                            <div class="yop">1960</div>
+                        </div>
+
+                        <div class="isbn-ctnr">
+                            <div class="isbn-label">ISBN:</div>
+                            <div class="isbn">0446310786</div>
+                        </div>
+
+                        <div class="status-ctnr">
+                            <div class="status-label">Status: </div>
+                            <div class="status">Available</div>
+                        </div>
+
+                        <div class="borrow-button-ctnr">
+                            <div class="borrow-button">EDIT</div>
+                        </div>
+
+                        <div class="borrow-button-ctnr">
+                            <div class="borrow-button">DELETE</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-instances-ctnr">
+
+                    <div class="book-instance-header">
+                        <div class="book-instance-label">Book Instances</div>
+                    </div>
+
+                    <!-- {{#each review}} -->
+                    <div class="book-view-container">
+                        <div class="book">
+        
+                            <div class="book-view-image-container">
+                                <img class="book-view-image" src="../public/sprites/ToKillAMockingbird.jpg">
+                            </div>
+        
+                            <div class="instance-id">123456789</div>
+                            <div class="button-container">
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </div>
+                        </div>
+        
+                    </div>
+                    <!-- {{/each}} -->
+                    
+                    
+
+                    
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
