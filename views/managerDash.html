@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="managerDashcss.css">
+    </head>
+
+    <body>
+        <nav>
+            <img class="logo" src="../public/sprites/WHITE.png">
+
+            <ul class="nav">
+                <li><a href="#" name="home">Home</a></li>
+                <li><a href="#" name="logout">Logout</a></li> 
+            </ul>
+        </nav>
+
+        <div class="wrapper">
+            
+
+            <div class="wrapper-left">
+                <ul>
+                    <li data-li="addbook">
+                        <p>Add Book</p>
+                    </li>
+                    <li data-li="addbookinst">
+                        <p>Add Book Instance</p>
+                    </li>
+                    <li data-li="editbook">
+                        <p>Manage Book</p>
+                    </li>
+                    <!-- <li data-li="editbookinst">
+                        <p>Edit Book Instance</p>
+                    </li> -->
+                    <!-- <li data-li="delete">
+                        <p>Delete Book</p>
+                    </li>
+                    <li data-li="deleteinst">
+                        <p>Delete Book Instance</p>
+                    </li> -->
+                </ul>
+            </div>
+            
+            <div class="wrapper-right">
+                <div class="container">
+                    <div class="item addbook" >
+                        <div class="item-info">
+                            <p>Add Book</p>
+                            <div class="form-container">
+                                <form action="#">
+                                    <input type="text" placeholder="Title" />
+                                    <input type="text" placeholder="Author" />
+                                    <input type="text" placeholder="Publisher" />
+                                    <input type="text" placeholder="Year of Publication" />
+                                    <input type="text" placeholder="ISBN" />
+                                    <input type="text" placeholder="Link to Image"/>
+                                    <button>Add</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item addbookinst" style="display: none;">
+                        <div class="item-info">
+                            <p>Add Book Instance</p>
+                            <div class="form-container">
+                                <form action="#">
+                                    <select id="books" name="books">
+                                        <option value="" selected disabled hidden>Choose Book</option>
+                                        <option value="lesmis">Les Miserables</option>
+                                        <option value="mockingbird">To Kill a Mockigbird</option>
+                                        <option value="miceandmen">Of Mice and Men</option>
+                                    </select>
+                                    <input type="text" placeholder="Author" />
+                                    <input type="text" placeholder="Publisher" />
+                                    <input type="text" placeholder="Year of Publication" />
+                                    <input type="text" placeholder="ISBN" />
+                                    <input type="text" placeholder="Link to Image"/>
+                                    <button>Add Instance</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item editbook" style="display: none;">
+                        <div class="item-info">
+                            <p>Manage Book</p>
+                            <div class="form-container">
+                                <div class="book-container">
+                                    <div class="book">
+                    
+                                        <div class="book-image-container">
+                                            <img class="book-image" src="../public/sprites/ToKillAMockingbird.jpg">
+                                        </div>
+                    
+                                        <div class="book-title">To Kill A Mockingbird</div>
+                                        <div class="book-author">Harper Lee</div>
+                                        <div class="button-container">
+                                            <button>Manage</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="managerScript.js"></script>
+
+    </body>
+</html>
