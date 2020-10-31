@@ -5,7 +5,7 @@ var bookSchema = mongoose.Schema({
     title: String,
     author: String,
     publisher: String,
-    publictionYear: Date,
+    publicationYear: Date,
     ISBN: String,
     // reviews: String //subject to change
     coverImage: String

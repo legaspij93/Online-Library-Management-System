@@ -46,13 +46,13 @@
                         <div class="item-info">
                             <p>Add Book</p>
                             <div class="form-container">
-                                <form action="#">
-                                    <input type="text" placeholder="Title" />
-                                    <input type="text" placeholder="Author" />
-                                    <input type="text" placeholder="Publisher" />
-                                    <input type="text" placeholder="Year of Publication" />
-                                    <input type="text" placeholder="ISBN" />
-                                    <input type="text" placeholder="Link to Image"/>
+                                <form action="/book/createBook" method="POST">
+                                    <input type="text" name="title" placeholder="Title" />
+                                    <input type="text" name="author" placeholder="Author" />
+                                    <input type="text" name="publisher" placeholder="Publisher" />
+                                    <input type="text" name="publicationYear" placeholder="Year of Publication" />
+                                    <input type="text" name="ISBN" placeholder="ISBN" />
+                                    <input type="text" name="linktoImage" placeholder="Link to Image"/>
                                     <button>Add</button>
                                 </form>
                             </div>
@@ -63,8 +63,8 @@
                         <div class="item-info">
                             <p>Add Book Instance</p>
                             <div class="form-container">
-                                <form action="#">
-                                    <select id="books" name="books">
+                                <form action="/instance/createInstance" method="POST">
+                                    <select id="books" name="title">
                                         <option value="" selected disabled hidden>Choose Book</option>
                                         {{#each book}}
                                             <option value="{{title}}">{{title}}</option>
@@ -74,11 +74,11 @@
                                         <option value="mockingbird">To Kill a Mockigbird</option>
                                         <option value="miceandmen">Of Mice and Men</option> --}}
                                     </select>
-                                    <input type="text" placeholder="Author" />
-                                    <input type="text" placeholder="Publisher" />
-                                    <input type="text" placeholder="Year of Publication" />
+                                    <input type="text" name="dueDate" placeholder="Due Date" />
+                                    <input type="text" name="status" placeholder="Status" />
+                                    {{!-- <input type="text" placeholder="Year of Publication" />
                                     <input type="text" placeholder="ISBN" />
-                                    <input type="text" placeholder="Link to Image"/>
+                                    <input type="text" placeholder="Link to Image"/> --}}
                                     <button>Add Instance</button>
                                 </form>
                             </div>

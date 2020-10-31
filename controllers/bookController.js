@@ -22,7 +22,8 @@ router.post("/createBook", ensureManager, function(req,res){
         author: req.body.author,
         publisher: req.body.publisher,
         publicationYear: req.body.publicationYear,
-        ISBN: req.body.ISBN
+        ISBN: req.body.ISBN,
+        coverImage: req.body.linktoImage
     }
     Book.create(book).then((book)=>{
         console.log(book)
