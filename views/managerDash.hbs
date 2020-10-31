@@ -1,19 +1,122 @@
-<div>welcome manager</div>
-<div>
-    <form action="/book/createBook" method="post">
-        <div>title</div>
-        <input type="text" name="title">
-        <div>author</div>
-        <input type="text" name="author">
-        <div>publisher</div>
-        <input type="text" name="publisher">
-        <div>publication year</div>
-        <input type="number" min="1900" max="3000" step="1" value="2016" name="publicationYear">
-        <div>ISBN</div>
-        <input type="text" name="ISBN">
-        <div></div>
-        <input type="submit" value="Create">
-   
-    </form>
-</div>
-<a href="/user/logout">logout</a>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/managerDashcss.css">
+    </head>
+
+    <body>
+        <nav>
+            <img class="logo" src="/sprites/WHITE.png">
+
+            <ul class="nav">
+                <li><a href="/dashboard" name="home">Home</a></li>
+                <li><a href="/user/logout" name="logout">Logout</a></li> 
+            </ul>
+        </nav>
+
+        <div class="wrapper">
+            
+
+            <div class="wrapper-left">
+                <ul>
+                    <li data-li="addbook">
+                        <p>Add Book</p>
+                    </li>
+                    <li data-li="addbookinst">
+                        <p>Add Book Instance</p>
+                    </li>
+                    <li data-li="editbook">
+                        <p>Manage Book</p>
+                    </li>
+                    <!-- <li data-li="editbookinst">
+                        <p>Edit Book Instance</p>
+                    </li> -->
+                    <!-- <li data-li="delete">
+                        <p>Delete Book</p>
+                    </li>
+                    <li data-li="deleteinst">
+                        <p>Delete Book Instance</p>
+                    </li> -->
+                </ul>
+            </div>
+            
+            <div class="wrapper-right">
+                <div class="container">
+                    <div class="item addbook" >
+                        <div class="item-info">
+                            <p>Add Book</p>
+                            <div class="form-container">
+                                <form action="#">
+                                    <input type="text" placeholder="Title" />
+                                    <input type="text" placeholder="Author" />
+                                    <input type="text" placeholder="Publisher" />
+                                    <input type="text" placeholder="Year of Publication" />
+                                    <input type="text" placeholder="ISBN" />
+                                    <input type="text" placeholder="Link to Image"/>
+                                    <button>Add</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item addbookinst" style="display: none;">
+                        <div class="item-info">
+                            <p>Add Book Instance</p>
+                            <div class="form-container">
+                                <form action="#">
+                                    <select id="books" name="books">
+                                        <option value="" selected disabled hidden>Choose Book</option>
+                                        {{#each book}}
+                                            <option value="{{title}}">{{title}}</option>
+                                        {{/each}}
+                                        {{!-- <option value="" selected disabled hidden>Choose Book</option>
+                                        <option value="lesmis">Les Miserables</option>
+                                        <option value="mockingbird">To Kill a Mockigbird</option>
+                                        <option value="miceandmen">Of Mice and Men</option> --}}
+                                    </select>
+                                    <input type="text" placeholder="Author" />
+                                    <input type="text" placeholder="Publisher" />
+                                    <input type="text" placeholder="Year of Publication" />
+                                    <input type="text" placeholder="ISBN" />
+                                    <input type="text" placeholder="Link to Image"/>
+                                    <button>Add Instance</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item editbook" style="display: none;">
+                        <div class="item-info">
+                            <p>Manage Book</p>
+                                <div class="form-container">
+                                    <div class="book-container">
+                                        {{#each book}}
+                                            <div class="book">
+                                                <div class="book-image-container">
+                                                    <img class="book-image" src="{{coverImage}}">
+                                                </div>
+                            
+                                                <div class="book-title">{{title}}</div>
+                                                <div class="book-author">{{author}}</div>
+                                                <div class="button-container">
+                                                    <form action="/book/{{title}}" method="get">
+                                                        <button id="">Manage</button>
+                                                    </form>
+                                                    {{!-- <button>Manage</button> --}}
+                                                </div>
+                                            </div>
+                                        {{/each}}
+
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="managerScript.js"></script>
+
+    </body>
+</html>

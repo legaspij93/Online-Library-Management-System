@@ -46,6 +46,19 @@ router.post("/editBook", ensureManager, function(req,res){
         {ISBN:ISBN})
 })
 
+router.get("/edit_:title", ensureManager, function(req,res){
+    // logger.info("Book Edit by: " + req.user.username)
+    let currTitle = req.params.title
+    Book.findOne({title:currTitle}).then((book)=>{
+        res.render("editBook.hbs", {
+            currBook: book
+        })
+    })
+    // logger.info(title + " successfully edited.")
+    // Book.edit({_id:id}, {title: title}, {author:author}, {publisher:publisher}, {publicationYear:publicationYear},
+    //     {ISBN:ISBN})
+})
+
 router.post("/deleteBook", ensureManager, function(req,res){
     let id = req.body.id;
     console.log(id)
@@ -58,13 +71,27 @@ router.post("/deleteBook", ensureManager, function(req,res){
 router.get("/:title", function(req,res){
     let currTitle = req.params.title
     let userId = req.user.ID
-    console.log("title"+currTitle)
+    console.log("title: "+currTitle)
     Book.findOne({title:currTitle}).then((book)=>{
         User.findOne({ID:userId}).then((user)=>{
-            res.render("bookView.hbs", {
-                currBook:book,
-                users:user
-            })
+            if(req.user.userType == 3){
+                res.render("bookView.hbs", {
+                    currBook:book,
+                    users:user
+                })
+            }
+            else if(req.user.userType == 2){
+                res.render("managerBookView.hbs", {
+                    currBook:book,
+                    users:user
+                })
+            }
+            else if(req.user.userType == 1){
+                res.render("bookView.hbs", {
+                    currBook:book,
+                    users:user
+                })
+            }
         })
     })
     

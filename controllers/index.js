@@ -41,7 +41,19 @@ router.get("/dashboard", ensureAuthenticated, function(req,res){
                 res.render("adminDash.hbs", user)
             }
             else if(req.user.userType == 2){
-                res.render("managerDash.hbs", user)
+                logger.info("Rendering dashboard")
+                Book.find().then((books)=>{
+                    res.render("managerDash", {
+                      users: user, 
+                      book: books
+                    })
+                    console.log("books successfully loaded")
+                    console.log(req.body)
+                  }, (error)=> {
+                    console.log("error loading books");
+                    logger.error("Error loading books: " + error)
+                  })
+                // res.render("managerDash.hbs", user)
             }
         }, (error)=> {
             console.log("may error dito: " + error);

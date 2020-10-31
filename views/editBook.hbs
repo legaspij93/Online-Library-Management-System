@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/editBookcss.css">
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    </head>
+
+    <body>
+        <div class="dashboard-container">
+            <nav>
+                <img class="logo" src="/sprites/WHITE.png">
+
+                <ul class="nav">
+                    <li><a href="/dashboard" name="home">Home</a></li>
+                    <li><a href="/user/logout" name="logout">Logout</a></li> 
+                </ul>
+            </nav>
+
+            <div class="book-container">
+                <div class="details-container">
+                    <div class="form-container">
+                        {{#currBook}}
+                            <form action="#" method="POST">
+                                <input type="text" placeholder="Title" value="{{title}}"/>
+                                <input type="text" placeholder="Author" value="{{author}}"/>
+                                <input type="text" placeholder="Publisher" value="{{publisher}}"/>
+                                <input type="text" placeholder="Year of Publication" value="{{publictionYear}}"/>
+                                <input type="text" placeholder="ISBN" value="{{ISBN}}"/>
+                                <input type="text" placeholder="Link to Image" value="{{coverImage}}"/>
+                                <input type="text" placeholder="Status"/>
+                                <div class="button-container">
+                                    <button>Back</button>
+                                    <button>Save</button>
+                                </div>
+                                
+                            </form>
+                        {{/currBook}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
