@@ -1,7 +1,7 @@
 /*--------------------FONTS USED--------------------*/
 @font-face {
     font-family: ralewayregular;
-    src: url(fonts/ralewayregular.ttf);
+    src: url("./fonts/ralewayregular.ttf");
     font-weight: normal;
     font-style: normal;
 
@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: ralewaysemibold;
-    src: url(fonts/ralewaysemibold.ttf);
+    src: url("/fonts/ralewaysemibold.ttf");
     font-weight: normal;
     font-style: normal;
 }
@@ -131,7 +131,7 @@ nav ul .search-icon .icon span{
     color: #000;
     font-size: 18px;;
 }
-
+/* 
 .book-container{
     padding: 30px;
     width: 93%;
@@ -179,4 +179,55 @@ nav ul .search-icon .icon span{
 
 .book-author{
     padding-top: 5px;
+} */
+
+
+.book-container{
+    padding: 30px;
+    width: 93%;
+    margin-left: 15px;
+    margin-top: 15px;
+    display: grid;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
+
+.book{
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px 0px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    -webkit-box-shadow: 6px 6px 13px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 13px -6px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 13px -6px rgba(0,0,0,0.75);
+} 
+
+.book-image-container{
+    position: relative;
+    height: 250px;
+    width: 180px;
+}
+
+.book-image{
+    max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.book-title{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.book-title:hover{
+    color: #114b72;
+}
+
+.book-author{
+    padding-top: 5px;
+}
+
