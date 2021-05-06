@@ -38,7 +38,20 @@ router.get("/dashboard", ensureAuthenticated, function(req,res){
                 // res.render("dashboard.hbs", user)
             }
             else if(req.user.userType == 1){
-                res.render("adminDash.hbs", user)
+                User.find({userType: 2}).then((user)=>{
+                  res.render("adminDash.hbs", {
+                    users: user, 
+                    // logs: logger.stream({ start: -1 }).on('log', function(log) {
+                    //   console.log(log);
+                    // })
+                  })
+                  console.log("users successfully loaded")
+                  console.log(req.body)
+                }, (error)=> {
+                  console.log("error loading users");
+                  logger.error("Error loading users: " + error)
+                })
+                // res.render("adminDash.hbs", user)
             }
             else if(req.user.userType == 2){
                 logger.info("Rendering dashboard")
