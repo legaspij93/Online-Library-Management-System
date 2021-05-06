@@ -24,7 +24,7 @@
 }
 
 .dashboard-container{
-    background-image: url(sprites/bg.png);
+    background-color: rgba(248, 244, 223, 0.7);
     height: 100%;
     margin: 0px;
     max-width: 100%;

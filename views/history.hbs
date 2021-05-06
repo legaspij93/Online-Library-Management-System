@@ -1,9 +1,14 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/historyCSS.css">
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/historyCSS.css">
+        {{!-- <script src="..\public\profileScript.js"></script> --}}
 
+
+        {{!-- <script src="../public/profileScript.js"></script> --}}
+        {{!-- <script src="/changePasswordScript.js"></script> --}}
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+        {{!-- <script type="text/javascript" src="../public/profileScript.js"></script> --}}
     </head>
 
     <body>
@@ -33,11 +38,12 @@
                     </div>
 
                     <div class="button-container">
-                        <form action="/user/changePassword" method="get">
-                            <button id="password">Change Password</button>
-                        </form>
+                        {{!-- <form action=""> --}}
+                            <button class="profileButton" id="password">Change Password</button>
+                        {{!-- </form> --}}
+
                         <form action="/user/logout" method="get">
-                            <button id="logout">Logout</button>
+                            <button class="profileButton" id="logout">Logout</button>
                         </form>
 
                     </div>
@@ -48,85 +54,202 @@
                 <div class="body">
                     <div class="sidebar-container">
                         <div id="my-account">My Account</div>
-                        <div id="reviews">Reviews</div>
-                        <div id="borrowing">Currently Borrowing</div>
-                        <div id="history">History</div>
+                        <ul>
+                            <li data-li="reviews">
+                                <p>Reviews</p>
+                            </li>
+
+                            <li data-li="borrowing">
+                                <p>Borrowing</p>
+                            </li>
+                            
+                            <li data-li="history">
+                                <p>History</p>
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="main-container">
-                        <div class="label-container">
-                            <div id="label">History</div>
-                        </div>
-                        <hr/>
-
                         <div class="information-container">
-                            <div class="history">
-                                <div class="book-container">
-                                    <div id="book-title">Eleanor & Park</div>
-                                    <div id="author">Rainbow Rowell</div>
+                            
+                            <div class="itemcontainer reviews">
+                                <div class="item-info-container">
+                                    <div class="label-container">
+                                        <div id="label">Reviews</div>
+                                    </div>
+                                        <hr/>
+
+                                    <div class="review">
+                                        <div id="book-title">To Kill A Mockingbird</div>
+                                        <div id="review-descrip">I like the book even though it made me sleepy.</div>
+                                    </div>
+
+                                    <div class="review">
+                                        <div id="book-title">Eight Great Comedies</div>
+                                        <div id="review-descrip">It's a difficult book to understand</div>
+                                    </div>
+
+                                    <div class="review">
+                                        <div id="book-title">Of Mice and Men</div>
+                                        <div id="review-descrip">Challenged my brain cells while I was reading the book. The story was quite interesting. I recommend this book to high school students as this will help them learn.</div>
+                                    </div>
+
+                                    <div class="review">
+                                        <div id="book-title">Les Miserables</div>
+                                        <div id="review-descrip">Definitely a classic! Would read this over and over again.</div>
+                                    </div>
+
+                                    <div class="review">
+                                        <div id="book-title">Much Ado About Nothing</div>
+                                        <div id="review-descrip">Difficult to understand since the literature in the olden times were much harder to understand</div>
+                                    </div>
                                 </div>
                                 
-                                <div class="btn-container">
-                                    <button id="reborrow-btn">Re-Borrow</button>
+                            </div>
+                            
+                            <div class="itemcontainer borrowing" style="display: none;">
+                                <div class="item-info-container">
+                                    <div class="label-container">
+                                        <div id="label">Currently Borrowing</div>
+                                    </div>
+                                    <hr/>
+
+                                    <div class="borrow">
+                                        <div class="book-container">
+                                            <div id="book-title">To Kill A Mockingbird</div>
+                                            <div id="author">Harper Lee</div>
+                                        </div>
+                                
+                                        <div class="btn-container">
+                                            <button id="return-btn">Return</button>
+                                            <button id="review-btn">Leave A Review</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="borrow">
+                                        <div class="book-container">
+                                            <div id="book-title">To Kill A Mockingbird</div>
+                                            <div id="author">Harper Lee</div>
+                                        </div>
+                                
+                                        <div class="btn-container">
+                                            <button id="return-btn">Return</button>
+                                            <button id="review-btn">Leave A Review</button>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
+                                
                             </div>
 
-                            <div class="history">
-                                <div class="book-container">
-                                    <div id="book-title">Perks of Being A Wallflower</div>
-                                    <div id="author">Stephen Chobsky</div>
-                                </div>
+                            <div class="itemcontainer history" style="display: none;">
+                                <div class="item-info-container">
+                                    <div class="label-container">
+                                        <div id="label">History</div>
+                                    </div>
+                                    <hr/>
                                 
-                                <div class="btn-container">
-                                    <button id="reborrow-btn">Re-Borrow</button>
-                                </div>
-                            </div>
+                                    <div class="history">
+                                        <div class="book-container">
+                                            <div id="book-title">Eleanor & Park</div>
+                                            <div id="author">Rainbow Rowell</div>
+                                        </div>
+                                    
+                                        <div class="btn-container">
+                                            <button id="reborrow-btn">Re-Borrow</button>
+                                        </div>
+                                    </div>
 
-                            <div class="history">
-                                <div class="book-container">
-                                    <div id="book-title">Crazy Rich Asians</div>
-                                    <div id="author">Kevin Kwan</div>
-                                </div>
-                                
-                                <div class="btn-container">
-                                    <button id="reborrow-btn">Re-Borrow</button>
-                                </div>
-                            </div>
+                                    <div class="history">
+                                        <div class="book-container">
+                                            <div id="book-title">Perks of Being A Wallflower</div>
+                                            <div id="author">Stephen Chobsky</div>
+                                        </div>
+                                        
+                                        <div class="btn-container">
+                                            <button id="reborrow-btn">Re-Borrow</button>
+                                        </div>
+                                    </div>
 
-                            <div class="history">
-                                <div class="book-container">
-                                    <div id="book-title">China Rich Girlfriend</div>
-                                    <div id="author">Kevin Kwan</div>
-                                </div>
-                                
-                                <div class="btn-container">
-                                    <button id="reborrow-btn">Re-Borrow</button>
-                                </div>
-                            </div>
+                                    <div class="history">
+                                        <div class="book-container">
+                                            <div id="book-title">Crazy Rich Asians</div>
+                                            <div id="author">Kevin Kwan</div>
+                                        </div>
+                                        
+                                        <div class="btn-container">
+                                            <button id="reborrow-btn">Re-Borrow</button>
+                                        </div>
+                                    </div>
 
-                            <div class="history">
-                                <div class="book-container">
-                                    <div id="book-title">Rich People Problems</div>
-                                    <div id="author">Kevin Kwan</div>
+                                    <div class="history">
+                                        <div class="book-container">
+                                            <div id="book-title">China Rich Girlfriend</div>
+                                            <div id="author">Kevin Kwan</div>
+                                        </div>
+                                        
+                                        <div class="btn-container">
+                                            <button id="reborrow-btn">Re-Borrow</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="history">
+                                        <div class="book-container">
+                                            <div id="book-title">Rich People Problems</div>
+                                            <div id="author">Kevin Kwan</div>
+                                        </div>
+                                        
+                                        <div class="btn-container">
+                                            <button id="reborrow-btn">Re-Borrow</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 
-                                <div class="btn-container">
-                                    <button id="reborrow-btn">Re-Borrow</button>
-                                </div>
                             </div>
                             
                         </div>
+
+                        
+
                     </div>
 
                 </div>
 
             </div>
-            
-            
 
+           {{!-- modal for change password --}}
+            <div class="bg-modal">
+                <div class="modal-content">
+                    <div class="close">+</div>
+
+                    <form action="">
+                        <div class="change-password-label">Change Password</div>
+                        <input type="text" placeholder="Old Password" class="change-pass">
+                        <input type="text" placeholder="New Password" class="change-pass">
+                        <a href="" class="profileButton" id="changePass">Change Password</a>
+                    </form>
+                </div>
+            </div>
+
+
+            {{!-- modal for leave review --}}
+            <div class="review-modal">
+                <div class="review-modal-content">
+                    <div class="close">+</div>
+
+                    <form action="">
+                        <div class="leave-review-label">Leave A Review</div>
+                        <textarea name="text" class="review-content" rows="5" cols="50" wrap="soft"></textarea>
+                        {{!-- <input type="text" placeholder="Insert review here..." class="review-content"> --}}
+                        <a href="" class="profileButton" id="reviewButton">Submit Review</a>
+                    </form>
+                </div>
+            </div>
 
         </div>
 
+        <script src="/profileScript.js"></script>
+        
     </body>
 
 </html>
