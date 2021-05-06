@@ -65,7 +65,7 @@ closeBtn.addEventListener('click', closeModal);
 
 function openModal(){
     modal.style.display="flex";
-    console.log("OPEN MODAL")
+    console.log("OPEN MODAL!!!")
 }
 
 // Close Modal
