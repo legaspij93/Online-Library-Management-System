@@ -37,37 +37,38 @@ for(var i = 0; i < li_elements.length; i++)
     });
 }
 
-document.getElementsById("review-btn").addEventListener("click", function(){
+document.getElementById("review-btn").addEventListener("click", function(){
     document.querySelector(".review-modal").style.display="flex";
 });
 
 
-document.getElementById("close").addEventListener("click", function(){
+document.getElementsByClassName("close").item(1).addEventListener("click", function(){
     document.querySelector(".review-modal").style.display = "none";
 });
 
-// // get change pass button
-// var changePassBtn = document.getElementById("password");
+// get change pass button
+var changePassBtn = document.getElementById("password");
 
-// //get modal element
-// var modal = document.getElementsByClassName(".bg-modal");
+//get modal element
+var modal = document.getElementsByClassName("bg-modal").item(0);
 
-// //get close button
-// var closeBtn = document.getElementById('close');
+//get close button
+var closeBtn = document.getElementsByClassName('close').item(0);
 
-// //Listen for open click
-// changePassBtn.addEventListener('click', openModal);
+//Listen for open click
+changePassBtn.addEventListener('click', openModal);
 
-// //Listen for close click
-// closeBtn.addEventListener('click', closeModal);
+//Listen for close click
+closeBtn.addEventListener('click', closeModal);
 
-// // Open Modal Function
+// Open Modal Function
 
-// function openModal(){
-//     modal.style.display="flex";
-// }
+function openModal(){
+    modal.style.display="flex";
+    console.log("OPEN MODAL")
+}
 
-// // Close Modal
-// function closeModal(){
-//     modal.style.display="none";
-// }
+// Close Modal
+function closeModal(){
+    modal.style.display="none";
+}

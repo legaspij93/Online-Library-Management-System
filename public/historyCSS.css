@@ -392,8 +392,16 @@ hr{
     align-items: center;
     display: none;
 
+    pointer-events: none;
+    opacity: 0;
+
     /* visibility: hidden;
     opacity: 0; */
+}
+
+.bg-modal.show{
+    pointer-events: auto;
+    opacity: 1;
 }
 
 /* .bg-active{
