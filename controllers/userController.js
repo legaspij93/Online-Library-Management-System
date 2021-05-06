@@ -74,7 +74,7 @@ router.post("/register", [
                 password: req.body.password,
                 email: req.body.email,
                 ID: req.body.ID,
-                userType: 3
+                userType: 2
             }
             User.create(user).then((user)=>{
                 console.log(user)
