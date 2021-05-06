@@ -1,7 +1,7 @@
 /*--------------------FONTS USED--------------------*/
 @font-face {
     font-family: ralewayregular;
-    src: url(fonts/ralewayregular.ttf);
+    src: url("./fonts/ralewayregular.ttf");
     font-weight: normal;
     font-style: normal;
 
@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: ralewaysemibold;
-    src: url(fonts/ralewaysemibold.ttf);
+    src: url("/fonts/ralewaysemibold.ttf");
     font-weight: normal;
     font-style: normal;
 }
