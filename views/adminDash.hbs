@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/adminDashcss.css">
+        <link rel="stylesheet" href="/managerDashcss.css">
     </head>
 
     <body>
@@ -19,15 +19,15 @@
 
             <div class="wrapper-left">
                 <ul>
-                    <li data-li="addmanager">
-                        <p>Add Manager</p>
+                    <li data-li="addbook">
+                        <p>Create Manager</p>
                     </li>
-                    <li data-li="viewmanagers">
-                        <p>View Managers</p>
+                    <li data-li="addbookinst">
+                        <p>Admin Logs</p>
                     </li>
-                    <li data-li="viewlogs">
-                        <p>View Logs</p>
-                    </li>
+                    {{!-- <li data-li="editbook">
+                        <p>Manage Book</p>
+                    </li> --}}
                     <!-- <li data-li="editbookinst">
                         <p>Edit Book Instance</p>
                     </li> -->
@@ -42,86 +42,47 @@
             
             <div class="wrapper-right">
                 <div class="container">
-                    <div class="item addmanager" >
+                    <div class="item addbook" >
                         <div class="item-info">
-                            <p>Add Manager</p>
+                            <div class="header-label">Create Manager</div>
+                            {{!-- <p>Add Book</p> --}}
                             <div class="form-container">
-                                <form action="/user/registerManager" method="POST">
-                                    <input type="text" name="firstName" placeholder="First Name" />
-                                    <input type="text" name="lastName" placeholder="Last Name" />
-                                    <input type="text" name="username" placeholder="Username" />
-                                    <input type="email" name="email" placeholder="Email" />
-                                    <input type="text" name="ID" placeholder="ID Number" />
-                                    <input type="password" name="password" placeholder="Password" />
-                                    <button>Create</button>
+                                <form action="/book/createBook" method="POST">
+                                    <span>First Name</span>
+                                    <input type="text" name="title" placeholder="First Name" />
+                                    <span>Last Name</span>
+                                    <input type="text" name="author" placeholder="Last Name" />
+                                    <span>Manager Username</span>
+                                    <input type="text" name="publisher" placeholder="Manager Username" />
+                                    <span>Email Address</span>
+                                    <input type="text" name="publicationYear" placeholder="Email Address" />
+                                    <span>Password</span>
+                                    <input type="text" name="ISBN" placeholder="Password" />
+                                    {{!-- <span>Link to Image</span>
+                                    <input type="text" name="linktoImage" placeholder="Link to Image"/> --}}
+                                    <button>Create Manager</button>
                                 </form>
                             </div>
                         </div>
                     </div>
 
-                    <div class="item viewmanagers" style="display: none;">
+                    <div class="item addbookinst" style="display: none;">
                         <div class="item-info">
-                            <p>Managers</p>
-                                <div class="form-container">
-                                    <div class="book-container">
-                                        {{#each users}}
-                                            <div class="book">
-                                                {{!-- <div class="book-image-container">
-                                                    <img class="book-image" src="{{coverImage}}">
-                                                </div> --}}
-                            
-                                                <div class="book-title">{{firstName}} {{lastName}}</div>
-                                                {{!-- <div class="book-author">{{author}}</div> --}}
-                                                <div class="button-container">
-                                                    <form action="/book/{{title}}" method="get">
-                                                        <button id="">Manage</button>
-                                                    </form>
-                                                    {{!-- <button>Manage</button> --}}
-                                                </div>
-                                            </div>
-                                        {{/each}}
-
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-
-                    <div class="item logs" style="display: none;">
-                        <div class="item-info">
-                            <p>Logs</p>
+                            <div class="header-label">Admin Logs</div>
                             <div class="form-container">
-                                {{#each logs}}
-                                    <div> {{timestamp}} ({{level}}): {{message}} </div>
-                                {{/each}}
-                                <form action="/instance/createInstance" method="POST">
-                                    <select id="books" name="title">
-                                        <option value="" selected disabled hidden>Choose Book</option>
-                                        {{#each book}}
-                                            <option value="{{title}}">{{title}}</option>
-                                        {{/each}}
-                                        {{!-- <option value="" selected disabled hidden>Choose Book</option>
-                                        <option value="lesmis">Les Miserables</option>
-                                        <option value="mockingbird">To Kill a Mockigbird</option>
-                                        <option value="miceandmen">Of Mice and Men</option> --}}
-                                    </select>
-                                    <input type="text" name="dueDate" placeholder="Due Date" />
-                                    <input type="text" name="status" placeholder="Status" />
-                                    {{!-- <input type="text" placeholder="Year of Publication" />
-                                    <input type="text" placeholder="ISBN" />
-                                    <input type="text" placeholder="Link to Image"/> --}}
-                                    <button>Add Instance</button>
-                                </form>
+                                
+
                             </div>
                         </div>
                     </div>
 
-                    
+                
                 </div>
 
             </div>
         </div>
 
-        <script src="adminScript.js"></script>
+        <script src="managerScript.js"></script>
 
     </body>
 </html>

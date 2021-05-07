@@ -44,14 +44,21 @@
                 <div class="container">
                     <div class="item addbook" >
                         <div class="item-info">
-                            <p>Add Book</p>
+                            <div class="header-label">Add Book</div>
+                            {{!-- <p>Add Book</p> --}}
                             <div class="form-container">
                                 <form action="/book/createBook" method="POST">
+                                    <span>Title</span>
                                     <input type="text" name="title" placeholder="Title" />
+                                    <span>Author</span>
                                     <input type="text" name="author" placeholder="Author" />
+                                    <span>Publisher</span>
                                     <input type="text" name="publisher" placeholder="Publisher" />
-                                    <input type="text" name="publicationYear" placeholder="Year of Publication" />
+                                    <span>Year of Publication</span>
+                                    <input type="date" name="publicationYear" placeholder="Year of Publication" />
+                                    <span>ISBN</span>
                                     <input type="text" name="ISBN" placeholder="ISBN" />
+                                    <span>Link to Image</span>
                                     <input type="text" name="linktoImage" placeholder="Link to Image"/>
                                     <button>Add</button>
                                 </form>
@@ -61,9 +68,11 @@
 
                     <div class="item addbookinst" style="display: none;">
                         <div class="item-info">
-                            <p>Add Book Instance</p>
+                            <div class="header-label">Add Book Instance</div>
+                            {{!-- <p>Add Book Instance</p> --}}
                             <div class="form-container">
                                 <form action="/instance/createInstance" method="POST">
+                                <span>Choose Book</span>
                                     <select id="books" name="title">
                                         <option value="" selected disabled hidden>Choose Book</option>
                                         {{#each book}}
@@ -74,8 +83,9 @@
                                         <option value="mockingbird">To Kill a Mockigbird</option>
                                         <option value="miceandmen">Of Mice and Men</option> --}}
                                     </select>
+                                    <span>Due Date</span>
                                     <input type="text" name="dueDate" placeholder="Due Date" />
-                                    <input type="text" name="status" placeholder="Status" />
+                                    {{!-- <input type="text" name="status" placeholder="Status" /> --}}
                                     {{!-- <input type="text" placeholder="Year of Publication" />
                                     <input type="text" placeholder="ISBN" />
                                     <input type="text" placeholder="Link to Image"/> --}}
@@ -87,7 +97,8 @@
 
                     <div class="item editbook" style="display: none;">
                         <div class="item-info">
-                            <p>Manage Book</p>
+                            <div class="header-label">Manage Book</div>
+                            {{!-- <p>Manage Book</p> --}}
                                 <div class="form-container">
                                     <div class="book-container">
                                         {{#each book}}
