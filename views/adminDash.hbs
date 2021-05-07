@@ -1,39 +1,88 @@
-<div>welcome admin</div>
-<div>
-    <div>First Name</div>
-                <div>Last Name</div>
-                <div class="username-label">Username</div>
-                <div class="email-label">Email</div>
-                <div class="password-label">Password</div>
-                <div>ID</div>
-                    <form action="/user/registerManager" method="post">
-                        <div>
-                            <input type="text" name="firstName">
-                        </div>
-                        
-                        <div>
-                            <input type="text" name="lastName">
-                        </div>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/managerDashcss.css">
+    </head>
 
-                        <div class="username-input">
-                            <input class="username" type="text" name="username">
-                        </div>
+    <body>
+        <nav>
+            <img class="logo" src="/sprites/WHITE.png">
 
-                        <div class="email-input">
-                            <input class="email" type="text" name="email">
-                        </div>
-                        
-                        <div class="password-input">
-                            <input class="password" type="password" name="password">
-                        </div>
+            <ul class="nav">
+                <li><a href="/dashboard" name="home">Home</a></li>
+                <li><a href="/user/logout" name="logout">Logout</a></li> 
+            </ul>
+        </nav>
 
-                        <div>
-                            <input type="text" name="ID">
-                        </div>
+        <div class="wrapper">
+            
 
-                        <div class="login-button-container">
-                            <input type="submit" value="Register" class="subbutton login-button">
+            <div class="wrapper-left">
+                <ul>
+                    <li data-li="addbook">
+                        <p>Create Manager</p>
+                    </li>
+                    <li data-li="addbookinst">
+                        <p>Admin Logs</p>
+                    </li>
+                    {{!-- <li data-li="editbook">
+                        <p>Manage Book</p>
+                    </li> --}}
+                    <!-- <li data-li="editbookinst">
+                        <p>Edit Book Instance</p>
+                    </li> -->
+                    <!-- <li data-li="delete">
+                        <p>Delete Book</p>
+                    </li>
+                    <li data-li="deleteinst">
+                        <p>Delete Book Instance</p>
+                    </li> -->
+                </ul>
+            </div>
+            
+            <div class="wrapper-right">
+                <div class="container">
+                    <div class="item addbook" >
+                        <div class="item-info">
+                            <div class="header-label">Create Manager</div>
+                            {{!-- <p>Add Book</p> --}}
+                            <div class="form-container">
+                                <form action="/book/createBook" method="POST">
+                                    <span>First Name</span>
+                                    <input type="text" name="title" placeholder="First Name" />
+                                    <span>Last Name</span>
+                                    <input type="text" name="author" placeholder="Last Name" />
+                                    <span>Manager Username</span>
+                                    <input type="text" name="publisher" placeholder="Manager Username" />
+                                    <span>Email Address</span>
+                                    <input type="text" name="publicationYear" placeholder="Email Address" />
+                                    <span>Password</span>
+                                    <input type="text" name="ISBN" placeholder="Password" />
+                                    {{!-- <span>Link to Image</span>
+                                    <input type="text" name="linktoImage" placeholder="Link to Image"/> --}}
+                                    <button>Create Manager</button>
+                                </form>
+                            </div>
                         </div>
-                    </form>
-</div>
-<a href="/user/logout">logout</a>
+                    </div>
+
+                    <div class="item addbookinst" style="display: none;">
+                        <div class="item-info">
+                            <div class="header-label">Admin Logs</div>
+                            <div class="form-container">
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+                
+                </div>
+
+            </div>
+        </div>
+
+        <script src="managerScript.js"></script>
+
+    </body>
+</html>
