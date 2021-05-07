@@ -166,19 +166,23 @@ router.get("/logout", function(req,res){
 })
 
 router.post("/changePassword", function(req,res){
-    let username = req.user._id;
-    let password1 = req.body.password1;
-    let password2 = req.body.password2;
+    let username = req.user.username;
+    let oldPW = req.body.oldPW;
+    let newPW = req.body.newPW;
 
     console.log(username)
-    console.log(password1)
-    console.log(password2)
+    console.log("utot")
+    console.log(oldPW)
+    console.log(newPW)
 
-    if(password1 == password2){
-        User.findOneAndUpdate({_id:username}, {password: crypto.createHash("md5").update(password1).digest("hex")}).then((user)=>{
-            console.log(user)
-        })
-    }
+    User.findOne({username:currUsername}, {password: crypto.createHash("md5").update(oldPW).digest("hex")}).then((user)=>{
+        User.edit({_id: user.id}, {password: crypto.createHash("md5").update(newPW).digest("hex")})
+    
+    })
+    // User.findOneAndUpdate({_id:username}, {password: crypto.createHash("md5").update(newPW).digest("hex")}).then((user)=>{
+        // console.log(user)
+    // })
+    
     res.redirect("/dashboard")
 })
 
@@ -188,32 +192,37 @@ router.get("/profile", function(req,res){
 
 router.get("/:username", function(req,res){
     let currUsername = req.user.username
+    console.log(currUsername)
     User.findOne({username:currUsername}).then((user)=>{
-        History.getAll({user:currUsername}).then((history)=>{
-            Review.getAll({reviewerId:currUsername}).then((reviews)=>{
-                BookInstance.getAll({instanceID:history.instanceID}).then((books)=>{
-                    res.render("history.hbs",{
-                        curr_user: user,
-                        curr_history: history,
-                        curr_review: reviews,
-                        curr_books: books
-                    })
-                    console.log("books successfully loaded")
-                }, (error)=> {
-                    console.log("error loading books");
-                    logger.error("Error loading books: " + error)
-                })
-                console.log("reviews successfully loaded")
-            }, (error)=>{
-                console.log("error loading reviews");
-                logger.error("Error loading reviews: " + error)
-            })
-            console.log("history successfully loaded")
-        }, (error)=>{
-            console.log("error loading history");
-            logger.error("Error loading history: " + error)
-        })
-        // res.render("history.hbs", user)
+    //     History.getAll({user:currUsername}).then((history)=>{
+    //         Review.getAll({reviewerId:currUsername}).then((reviews)=>{
+    //             BookInstance.getAll({instanceID:history.instanceID}).then((books)=>{
+    //                 res.render("history.hbs",{
+    //                     firstName: user.firstName,
+    //                     lastName: user.lastName,
+    //                     ID: user.ID,
+    //                     email: user.email,
+    //                     username: user.username,
+    //                     curr_history: history,
+    //                     curr_review: reviews,
+    //                     curr_books: books
+    //                 })
+    //                 console.log("books successfully loaded")
+    //             }, (error)=> {
+    //                 console.log("error loading books");
+    //                 logger.error("Error loading books: " + error)
+    //             })
+    //             console.log("reviews successfully loaded")
+    //         }, (error)=>{
+    //             console.log("error loading reviews");
+    //             logger.error("Error loading reviews: " + error)
+    //         })
+    //         console.log("history successfully loaded")
+    //     }, (error)=>{
+    //         console.log("error loading history");
+    //         logger.error("Error loading history: " + error)
+    //     })
+        res.render("history.hbs", user)
     })
     
 })

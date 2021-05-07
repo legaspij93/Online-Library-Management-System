@@ -61,10 +61,11 @@
                                 <div class="status">Available</div>
                             </div>
 
+                            <input type="hidden" name="id" value="{{_id}}"/>
                             <div class="borrow-button-ctnr">
                                 <div class="borrow-button">
-                                    <form action="/bookInstance/borrowBook" method="post">
-                                        BORROW
+                                    <form action="/instance/borrowBook" method="post">
+                                        <input type="submit" value="Borrow">
                                     </form>
                                 </div>
                             </div>
