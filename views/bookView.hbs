@@ -62,14 +62,14 @@
                                 <div class="status">Available</div>
                             </div>
 
-                            <input type="hidden" name="id" value="{{_id}}"/>
-                            <div class="borrow-button-ctnr">
+                            {{!-- <input type="hidden" name="id" value="{{_id}}"/> --}}
+                            {{!-- <div class="borrow-button-ctnr">
                                 <div class="borrow-button">
                                     <form action="/instance/borrowBook" method="post">
                                         <input type="submit" value="Borrow">
                                     </form>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 {{/currBook}}
@@ -91,7 +91,13 @@
                                 <div class="instance-id">{{instanceID}}</div>
                                 <div class="button-container">
                                     <div class="status-label">Status: {{status}} </div>
-                                    <button>Borrow</button>
+                                    {{!-- <div class="borrow-button-ctnr"> --}}
+                                    {{!-- <div class="borrow-button"> --}}
+                                    <input type="hidden" name="id" value="{{_id}}"/>
+                                    <form action="/instance/borrowBook" method="post">
+                                        {{!-- <input type="submit" value="Borrow"> --}}
+                                            <button>Borrow</button>
+                                    </form>
                                 </div>
                             </div>
                         {{/each}}
