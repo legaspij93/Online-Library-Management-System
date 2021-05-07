@@ -14,7 +14,8 @@ require("./helpers/passport")(passport)
 mongoose.Promise = global.Promise
 
 mongoose.connect("mongodb://localhost:27017/olms", {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 
 //Bodyparser

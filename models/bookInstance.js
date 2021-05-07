@@ -34,6 +34,18 @@ exports.get = function(id){
     })
 }
 
+exports.getAll = function(instanceId){
+    return new Promise(function(resolve, reject){
+        BookInstance.find({instanceID:instanceId}).then((bookInstances)=>{
+            resolve(bookInstances)
+        }, (err)=>{
+            reject(err)
+        }, (error)=>{
+            console.log(error)
+        })
+    })
+}
+
 exports.getAll = function(){
     return new Promise(function(resolve, reject){
         BookInstance.find().then((bookInstances)=>{

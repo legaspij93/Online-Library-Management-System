@@ -63,7 +63,7 @@
 
                             <div class="borrow-button-ctnr">
                                 <div class="borrow-button">
-                                    <form action="" method="post">
+                                    <form action="/bookInstance/borrowBook" method="post">
                                         BORROW
                                     </form>
                                 </div>
@@ -78,7 +78,11 @@
                         <div class="review-label">Reviews</div>
 
                         <div class="review-button-ctnr">
-                            <div class="review-button">LEAVE A REVIEW</div>
+                            <div class="review-button">
+                                <form action="/review/createReview" method="POST">
+                                    LEAVE A REVIEW
+                                </form>
+                            </div>
                         </div>
                     </div>
 

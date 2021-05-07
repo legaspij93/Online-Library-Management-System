@@ -50,6 +50,7 @@ router.post("/deleteInstance", ensureManager, function(req,res){
 router.post("/borrowBook", function(req,res){
     let id = req.body.id;
     let status = 1;
+    console.log("clicked")
     BookInstance.edit({_id:id}, {status: status})
     logger.info(id + " borrowed by: " + req.user.username)
     res.redirect("/dashboard")

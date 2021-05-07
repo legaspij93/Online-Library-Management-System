@@ -45,6 +45,17 @@ exports.getAll = function(){
     })
 }
 
+exports.getAll = function(username){
+    return new Promise(function(resolve, reject){
+        Review.find({reviewerID:username}).then((reviews)=>{
+            console.log(reviews)
+            resolve(review)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}
+
 exports.edit = function(oldContent, newContent){
     return new Promise(function(resolve, reject){
         Review.findOneAndUpdate(oldContent, newContent).then((review)=>{

@@ -18,6 +18,17 @@ exports.getAll = function(){
     })
 }
 
+exports.getAll = function(username){
+    return new Promise(function(resolve, reject){
+        History.find({user:username}).then((history)=>{
+            console.log(history)
+            resolve(history)
+        }, (error)=>{
+            console.log(error)
+        })
+    })
+}
+
 exports.get = function(id){
     return new Promise(function(resolve, reject){
         History.findOne({instanceID: id}).then((history)=>{

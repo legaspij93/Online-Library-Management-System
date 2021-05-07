@@ -10,6 +10,10 @@ const { ensureAdmin } = require("../helpers/auth")
 
 const { check , validationResult } = require('express-validator')
 const { info } = require("console")
+const Book = require("../models/book")
+const BookInstance = require("../models/bookInstance")
+const History = require("../models/history")
+const Review = require("../models/review")
 
 const app = express()
 
@@ -185,7 +189,31 @@ router.get("/profile", function(req,res){
 router.get("/:username", function(req,res){
     let currUsername = req.user.username
     User.findOne({username:currUsername}).then((user)=>{
-        res.render("history.hbs", user)
+        History.getAll({user:currUsername}).then((history)=>{
+            Review.getAll({reviewerId:currUsername}).then((reviews)=>{
+                BookInstance.getAll({instanceID:history.instanceID}).then((books)=>{
+                    res.render("history.hbs",{
+                        curr_user: user,
+                        curr_history: history,
+                        curr_review: reviews,
+                        curr_books: books
+                    })
+                    console.log("books successfully loaded")
+                }, (error)=> {
+                    console.log("error loading books");
+                    logger.error("Error loading books: " + error)
+                })
+                console.log("reviews successfully loaded")
+            }, (error)=>{
+                console.log("error loading reviews");
+                logger.error("Error loading reviews: " + error)
+            })
+            console.log("history successfully loaded")
+        }, (error)=>{
+            console.log("error loading history");
+            logger.error("Error loading history: " + error)
+        })
+        // res.render("history.hbs", user)
     })
     
 })
