@@ -25,6 +25,7 @@
                     </li>
                 </ul>
             </nav>
+
             {{#currBook}}
                 <div class="book-container">
                     <div class="details-container">
@@ -73,6 +74,30 @@
                     </div>
                 {{/currBook}}
 
+                {{!-- BOOK INSTANCES --}}
+                <div class="book-instances-ctnr">
+
+                    <div class="book-instance-header">
+                        <div class="book-instance-label">Book Instances</div>
+                    </div>
+                    <div class="book-view-container">
+                        <div class="book">
+        
+                            <div class="book-view-image-container">
+                                <img class="book-view-image" src="../public/sprites/ToKillAMockingbird.jpg">
+                            </div>
+        
+                            <div class="instance-id">123456789</div>
+                            <div class="button-container">
+                                <div class="status-label">Status: </div>
+                                <button>Borrow</button>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+                
+                {{!-- END OF BOOK INSTANCE --}}
+
                 <div class="review-ctnr">
 
                     <div class="review-header">
@@ -87,17 +112,14 @@
                         </div>
                     </div>
 
-                    {{#each review}}
+                    {{!-- {{#each review}} --}}
                         <div class="review">
                             <div class="reviewer">John Legaspi</div>
 
                             <div class="review-description">I like the book.</div>
                         </div>
-                    {{/each}}
-                    
-                    
+                    {{!-- {{/each}} --}}
 
-                    
                 </div>
 
             </div>
