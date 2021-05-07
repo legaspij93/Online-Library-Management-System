@@ -47,17 +47,19 @@
                             <div class="header-label">Create Manager</div>
                             {{!-- <p>Add Book</p> --}}
                             <div class="form-container">
-                                <form action="/book/createBook" method="POST">
+                                <form action="/user/registerManager" method="POST">
                                     <span>First Name</span>
-                                    <input type="text" name="title" placeholder="First Name" />
+                                    <input type="text" name="firstName" placeholder="First Name" />
                                     <span>Last Name</span>
-                                    <input type="text" name="author" placeholder="Last Name" />
+                                    <input type="text" name="lastName" placeholder="Last Name" />
                                     <span>Manager Username</span>
-                                    <input type="text" name="publisher" placeholder="Manager Username" />
+                                    <input type="text" name="username" placeholder="Manager Username" />
                                     <span>Email Address</span>
-                                    <input type="text" name="publicationYear" placeholder="Email Address" />
+                                    <input type="email" name="email" placeholder="Email Address" />
+                                    <span>ID Number</span>
+                                    <input type="text" name="ID" placeholder="ID Number" />
                                     <span>Password</span>
-                                    <input type="text" name="ISBN" placeholder="Password" />
+                                    <input type="password" name="password" placeholder="Password" />
                                     {{!-- <span>Link to Image</span>
                                     <input type="text" name="linktoImage" placeholder="Link to Image"/> --}}
                                     <button>Create Manager</button>
