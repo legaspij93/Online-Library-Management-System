@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Book = require("../models/book")
 const User = require("../models/user")
+const BookInstance = require("../models/bookInstance")
 const bodyparser = require("body-parser")
 const passport = require("passport")
 const logger = require("../config/logger")
@@ -75,24 +76,29 @@ router.get("/:title", function(req,res){
     console.log("title: "+currTitle)
     Book.findOne({title:currTitle}).then((book)=>{
         User.findOne({ID:userId}).then((user)=>{
-            if(req.user.userType == 3){
-                res.render("bookView.hbs", {
-                    currBook:book,
-                    users:user
-                })
-            }
-            else if(req.user.userType == 2){
-                res.render("managerBookView.hbs", {
-                    currBook:book,
-                    users:user
-                })
-            }
-            else if(req.user.userType == 1){
-                res.render("bookView.hbs", {
-                    currBook:book,
-                    users:user
-                })
-            }
+            BookInstance.find({title: book.title}).then((books)=>{
+                if(req.user.userType == 3){
+                    res.render("bookView.hbs", {
+                        currBook:book,
+                        books: books,
+                        users:user
+                    })
+                }
+                else if(req.user.userType == 2){
+                    res.render("managerBookView.hbs", {
+                        currBook:book,
+                        books: books,
+                        users:user
+                    })
+                }
+                else if(req.user.userType == 1){
+                    res.render("bookView.hbs", {
+                        currBook:book,
+                        books: books,
+                        users:user
+                    })
+                }
+            })
         })
     })
     

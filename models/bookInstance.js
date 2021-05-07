@@ -75,3 +75,5 @@ exports.delete = function (id){
     })
 
 }
+
+module.exports = BookInstance;

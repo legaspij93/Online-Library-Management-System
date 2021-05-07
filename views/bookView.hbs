@@ -81,18 +81,20 @@
                         <div class="book-instance-label">Book Instances</div>
                     </div>
                     <div class="book-view-container">
-                        <div class="book">
-        
-                            <div class="book-view-image-container">
-                                <img class="book-view-image" src="../public/sprites/ToKillAMockingbird.jpg">
+                        {{#each books}}
+                            <div class="book">
+                            
+                                <div class="book-view-image-container">
+                                    <img class="book-view-image" src="../public/sprites/ToKillAMockingbird.jpg">
+                                </div>
+
+                                <div class="instance-id">{{instanceID}}</div>
+                                <div class="button-container">
+                                    <div class="status-label">Status: {{status}} </div>
+                                    <button>Borrow</button>
+                                </div>
                             </div>
-        
-                            <div class="instance-id">123456789</div>
-                            <div class="button-container">
-                                <div class="status-label">Status: </div>
-                                <button>Borrow</button>
-                            </div>
-                        </div>
+                        {{/each}}
                     </div>   
                 </div>
                 
